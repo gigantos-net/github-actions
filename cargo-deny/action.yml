@@ -19,3 +19,4 @@ runs:
 
     - run: |
         ln -s $PWD/target/prep/cargo-deny/cargo-deny-*/cargo-deny ~/.cargo/bin/cargo-deny
+      shell: bash

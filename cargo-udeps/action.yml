@@ -19,3 +19,4 @@ runs:
 
     - run: |
         ln -s $PWD/target/prep/cargo-udeps/cargo-udeps-*/cargo-udeps ~/.cargo/bin/cargo-udeps
+      shell: bash

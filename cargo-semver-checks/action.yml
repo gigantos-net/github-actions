@@ -19,3 +19,4 @@ runs:
 
     - run: |
         ln -s $PWD/target/prep/cargo-semver-checks/cargo-semver-checks ~/.cargo/bin/cargo-semver-checks
+      shell: bash

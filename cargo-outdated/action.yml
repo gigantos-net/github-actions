@@ -19,3 +19,4 @@ runs:
 
     - run: |
         ln -s $PWD/target/prep/cargo-outdated/cargo-outdated-*/cargo-outdated ~/.cargo/bin/cargo-outdated
+      shell: bash
