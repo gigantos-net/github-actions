@@ -1,0 +1,21 @@
+name: 'Run cargo-semver-checks'
+description: 'Runs cargo semver-checks on a project'
+inputs:
+  token:
+    description: 'Token passed to release-downloader'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Download latest cargo-semver-checks
+      uses: robinraju/release-downloader@v1.8
+      with:
+          repository: obi1kenobi/cargo-semver-checks
+          token: ${{ inputs.token }}
+          latest: true
+          fileName: "cargo-semver-checks-x86_64-unknown-linux-musl.tar.gz"
+          extract: true
+          out-file-path: target/prep/cargo-semver-checks
+
+    - run: |
+        ln -s $PWD/target/prep/cargo-semver-checks/cargo-semver-checks ~/.cargo/bin/cargo-semver-checks
