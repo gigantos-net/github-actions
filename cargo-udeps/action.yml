@@ -1,0 +1,21 @@
+name: 'Run cargo-udeps'
+description: 'Runs cargo udeps on a project'
+inputs:
+  token:
+    description: 'Token passed to release-downloader'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Download latest cargo-udeps
+      uses: robinraju/release-downloader@v1.8
+      with:
+          repository: est31/cargo-udeps
+          token: ${{ inputs.token }}
+          latest: true
+          fileName: "cargo-udeps-*-x86_64-unknown-linux-musl.tar.gz"
+          extract: true
+          out-file-path: target/prep/cargo-udeps
+
+    - run: |
+        ln -s $PWD/target/prep/cargo-udeps/cargo-udeps-*/cargo-udeps ~/.cargo/bin/cargo-udeps
