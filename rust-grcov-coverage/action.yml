@@ -1,0 +1,22 @@
+name: 'rust-grcov-coverage'
+description: 'Prepare dependencies for grcov on rust sources'
+inputs:
+  token:
+    description: 'Token passed to release-downloader'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Download latest cargo-deny
+      uses: robinraju/release-downloader@v1.8
+      with:
+          repository: mozilla/grcov
+          token: ${{ inputs.token }}
+          latest: true
+          fileName: "grcov-x86_64-unknown-linux-musl.tar.gz"
+          extract: true
+          out-file-path: target/prep/grcov
+
+    - run: |
+        ln -s $PWD/target/prep/grcov/grcov ~/.cargo/bin/grcov
+      shell: bash
