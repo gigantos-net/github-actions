@@ -13,7 +13,7 @@ runs:
           repository: mozilla/grcov
           token: ${{ inputs.token }}
           latest: true
-          fileName: "grcov-x86_64-unknown-linux-musl.tar.gz"
+          fileName: "grcov-x86_64-unknown-linux-musl.tar.bz2"
           extract: true
           out-file-path: target/prep/grcov
 
