@@ -18,6 +18,6 @@ runs:
           out-file-path: target/prep/grcov
 
     - run: |
-        tar -C $PWD/target/prep/grcov -xjf grcov-x86_64-unknown-linux-musl.tar.bz2
+        tar -C target/prep/grcov -xjf target/prep/grcov/grcov-x86_64-unknown-linux-musl.tar.bz2
         ln -s $PWD/target/prep/grcov/grcov ~/.cargo/bin/grcov
       shell: bash
